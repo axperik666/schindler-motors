@@ -390,7 +390,7 @@ footer { padding: 34px 0; color: #bdbab4; background: #111; font-size: 14px; }
 .vehicle-landing .campaign-proof-actions .ghost-button { color: var(--red-dark); background: transparent; border-color: var(--red-dark); }
 .vehicle-landing .campaign-proof-photos { margin-top: 14px; }
 .vehicle-landing .campaign-proof-photos img { background: #eadfce; border-color: #d1bea0; }
-.vehicle-landing .campaign-proof-copy .compact-vehicle-form { max-width: 760px; min-height: 0; margin-top: 30px; padding: 28px; background: #fffdf8; border: 1px solid #cdbb9f; border-top: 5px solid var(--red); box-shadow: 8px 8px 0 rgba(91,66,34,.12); }
+.vehicle-landing .campaign-proof-photos .compact-vehicle-form { grid-column: 1 / -1; width: min(100%, 760px); min-height: 0; justify-self: center; margin: 18px 0 24px; padding: 28px; background: #fffdf8; border: 1px solid #cdbb9f; border-top: 5px solid var(--red); box-shadow: 8px 8px 0 rgba(91,66,34,.12); }
 .vehicle-landing .compact-vehicle-form .form-step { padding: 0; }
 .vehicle-landing .compact-vehicle-form .form-step h3 { margin-bottom: 18px; color: #302a21; font-size: 28px; }
 .vehicle-landing .compact-vehicle-form .two-fields { grid-template-columns: 1fr; }
@@ -449,7 +449,7 @@ footer { padding: 34px 0; color: #bdbab4; background: #111; font-size: 14px; }
   .vehicle-landing .request-shell { width: min(100% - 28px, 1120px); grid-template-columns: 1fr; gap: 34px; }
   .vehicle-landing .request-copy h2 { font-size: 42px; }
   .vehicle-landing .request-form { padding: 24px 18px; }
-  .vehicle-landing .campaign-proof-copy .compact-vehicle-form { margin-top: 24px; padding: 22px 18px; box-shadow: 5px 5px 0 rgba(91,66,34,.12); }
+  .vehicle-landing .campaign-proof-photos .compact-vehicle-form { width: 100%; margin: 12px 0 18px; padding: 22px 18px; box-shadow: 5px 5px 0 rgba(91,66,34,.12); }
   .gallery-conversion-cta { min-height: 0; flex-direction: column; align-items: stretch; padding: 22px 20px; }
   .gallery-conversion-cta strong { font-size: 23px; }
   .gallery-conversion-cta .red-button { width: 100%; }

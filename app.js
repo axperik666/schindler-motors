@@ -230,10 +230,10 @@
   function configureDirectVehicleForm() {
     if (!campaignVehicle) return;
     const form = $("#request-form");
-    const proofCopy = $(".campaign-proof-copy");
+    const proofPhotos = $("#campaign-proof-photos");
     const contactStep = $(".form-step[data-step='2']", form);
     const purchaseStep = $(".form-step[data-step='3']", form);
-    if (!form || !proofCopy || !contactStep || !purchaseStep) return;
+    if (!form || !proofPhotos || !contactStep || !purchaseStep) return;
 
     form.classList.add("compact-vehicle-form");
     contactStep.querySelector("h3").textContent = "Get a call about this exact car.";
@@ -276,8 +276,9 @@
       fullSubmit.disabled = true;
     }
 
-    const actionsBlock = $(".campaign-proof-actions", proofCopy);
-    (actionsBlock || proofCopy.lastElementChild).insertAdjacentElement("afterend", form);
+    const thirdPhoto = $$('img', proofPhotos)[2];
+    if (thirdPhoto) thirdPhoto.insertAdjacentElement("afterend", form);
+    else proofPhotos.append(form);
     showStep(2);
   }
 
@@ -396,7 +397,7 @@
     $("#campaign-proof-photos").innerHTML = vehicle.images.map((src, index) => {
       const source = assetPath(src);
       const image = `<img src="${source}" srcset="${responsiveSrcset(source)}" sizes="(max-width: 740px) calc(100vw - 28px), 50vw" alt="${vehicle.title}, listing photo ${index + 1} of ${vehicle.images.length}" width="1200" height="800" loading="lazy" decoding="async">`;
-      if (index !== 2) return image;
+      if (index !== 5) return image;
       return `${image}<div class="gallery-conversion-cta"><div><strong>Want to see a specific detail?</strong><span>Request a personal walk-around video or ask about delivery before you travel.</span></div><button class="red-button" type="button" data-gallery-request>Ask about this car</button></div>`;
     }).join("");
     const galleryRequest = $("[data-gallery-request]");
