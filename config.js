@@ -9,6 +9,6 @@ window.SITE_CONFIG = {
   mapsUrl: "https://maps.app.goo.gl/K3dz9h5WHRDnhiYF8",
   leadEndpoint: "https://classic-car-lead-gateway.elontraffer.chatgpt.site/api/leads/schindler",
   liveChatLicense: "",
-  metaPixelIds: ["1334500711837422", "1742493703749346", "1412287164299908", "2253383618827094", "1390774379226572", "1370481638484755"],
+  metaPixelIds: ["1370634048383393", "1597091351900270"],
   demoMode: false
 };

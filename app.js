@@ -562,20 +562,6 @@
       : `lead-${Date.now()}-${Math.random().toString(16).slice(2)}`;
   }
 
-  function trackLead(payload) {
-    if (!window.fbq) return;
-    const vehicle = inventory.find((row) => row.id === payload.vehicleSlug);
-    const parameters = {
-      content_name: vehicle ? vehicle.title : "Schindler Motors vehicle inquiry",
-      content_ids: vehicle ? [vehicle.id] : [],
-      content_type: "vehicle",
-      lead_source: payload.type || "vehicle-request",
-      currency: "USD"
-    };
-    if (vehicle && Number.isFinite(vehicle.price)) parameters.value = vehicle.price;
-    window.fbq("track", "Lead", parameters, { eventID: payload.leadId });
-  }
-
   async function postLeadToRouter(payload) {
     const requestPayload = { ...payload, leadSource: "LANDING", leadId: payload.leadId || newLeadId(), receivedAt: new Date().toISOString() };
     const options = { method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: JSON.stringify(requestPayload), redirect: "follow" };
@@ -608,7 +594,6 @@
     try {
       await postLeadToRouter(payload);
       showRequestSuccess(status);
-      trackLead(payload);
       return true;
     } catch (error) {
       lastDeliveryKey = "";
