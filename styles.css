@@ -614,6 +614,15 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -.035e
 .vehicle-landing .hero-content .vehicle-hero-price, .vehicle-landing .campaign-proof-price { color: #1c5648; }
 .vehicle-landing .campaign-proof-photos .compact-vehicle-form { background: #fffaf1; border-color: #c9bda8; border-top-color: #1c5648; box-shadow: 8px 8px 0 rgba(23,62,52,.11); }
 .vehicle-landing .inventory-all-link { background: #1c5648; border-color: #1c5648; }
+.hero-photo,
+.vehicle-landing .hero-photo { object-fit: contain; object-position: center; }
+.classic-image { background: #ded4c3; }
+.classic-image img,
+.vehicle-landing .classic-image img { object-fit: contain; object-position: center; background: #ded4c3; transform: none; }
+.classic-card:hover img { transform: none; }
+.campaign-proof-photos img,
+.vehicle-landing .campaign-proof-photos img,
+.vehicle-landing .campaign-proof-photos img:first-child { object-fit: contain; object-position: center; background: #ded4c3; }
 @media (max-width: 740px) {
   .hero { min-height: 0; display: flex; flex-direction: column; }
   .hero-photo { position: relative; inset: auto; order: 1; width: 100%; height: auto; aspect-ratio: 3 / 2; object-position: center; }
