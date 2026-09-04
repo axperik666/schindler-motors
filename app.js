@@ -398,10 +398,10 @@
       const source = assetPath(src);
       const image = `<img src="${source}" srcset="${responsiveSrcset(source)}" sizes="(max-width: 740px) calc(100vw - 28px), 50vw" alt="${vehicle.title}, listing photo ${index + 1} of ${vehicle.images.length}" width="1200" height="800" loading="lazy" decoding="async">`;
       if (index !== 5) return image;
-      return `${image}<div class="gallery-conversion-cta"><div><strong>Want to see a specific detail?</strong><span>Request a personal walk-around video or ask about delivery before you travel.</span></div><button class="red-button" type="button" data-gallery-request>Ask about this car</button></div>`;
+      return `${image}<div class="gallery-conversion-cta"><div><strong>Want to confirm a specific detail?</strong><span>Ask about condition, documentation, inspection, or delivery before you travel.</span></div><button class="red-button" type="button" data-gallery-request>Ask about this car</button></div>`;
     }).join("");
     const galleryRequest = $("[data-gallery-request]");
-    if (galleryRequest) galleryRequest.addEventListener("click", () => startRequest(vehicle.id, "Personal walk-around video"));
+    if (galleryRequest) galleryRequest.addEventListener("click", () => startRequest(vehicle.id, "Vehicle details and questions"));
     $("[data-campaign-gallery]").textContent = `See All ${vehicle.images.length} Photos`;
     $(".hero .eyebrow").textContent = "THE EXACT VEHICLE FROM YOUR AD";
     $("#hero-headline").textContent = vehicle.title;
@@ -434,7 +434,7 @@
     $("#hero-mobile-title").textContent = campaignVehicle.title;
     $("#hero-mobile-meta").textContent = `${money.format(campaignVehicle.price)}${campaignVehicle.stock ? ` · STOCK ${campaignVehicle.stock}` : ""}`;
     $("#hero-primary-cta").textContent = "Request details";
-    $("#hero-secondary-cta").textContent = "Request Walk-Around Video";
+    $("#hero-secondary-cta").textContent = "Ask About This Car";
     $$("[data-vehicle]", $(".hero")).forEach((button) => button.dataset.vehicle = campaignVehicle.id);
     $(".hero-gallery-button").textContent = `See all ${campaignVehicle.images.length} photos`;
     $("#vehicle-select").value = campaignVehicle.id;
