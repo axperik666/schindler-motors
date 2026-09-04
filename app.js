@@ -230,56 +230,10 @@
   function configureDirectVehicleForm() {
     if (!campaignVehicle) return;
     const form = $("#request-form");
-    const proofPhotos = $("#campaign-proof-photos");
-    const contactStep = $(".form-step[data-step='2']", form);
-    const purchaseStep = $(".form-step[data-step='3']", form);
-    if (!form || !proofPhotos || !contactStep || !purchaseStep) return;
+    if (!form) return;
 
     form.classList.add("compact-vehicle-form");
-    contactStep.querySelector("h3").textContent = "Get a call about this exact car.";
-
-    const firstName = $("input[name='firstName']", form);
-    const lastName = $("input[name='lastName']", form);
-    const email = $("input[name='email']", form);
-    setLabelText(firstName?.closest("label"), "Name");
-    firstName.autocomplete = "name";
-    if (lastName) {
-      lastName.required = false;
-      lastName.value = "";
-      lastName.closest("label").hidden = true;
-    }
-    if (email) {
-      email.required = true;
-      email.closest("label").hidden = false;
-    }
-
-    const undecided = $("input[name='purchaseMethod'][value='Undecided']", form);
-    if (undecided) undecided.checked = true;
-
-    const consent = $("label.consent", purchaseStep);
-    const privacy = $(".privacy-note", purchaseStep);
-    const status = $(".form-status", purchaseStep);
-    const fullSubmit = $("button[type='submit']", purchaseStep);
-    const actions = $(".step-actions", contactStep);
-    const next = $("[data-next='3']", contactStep);
-    if (consent) actions.before(consent);
-    if (privacy) actions.before(privacy);
-    if (next) {
-      next.type = "submit";
-      next.className = "submit-request quick-submit";
-      next.removeAttribute("data-next");
-      next.textContent = "Call me about this car";
-    }
-    if (status) actions.after(status);
-    if (fullSubmit) {
-      fullSubmit.type = "button";
-      fullSubmit.disabled = true;
-    }
-
-    const thirdPhoto = $$('img', proofPhotos)[2];
-    if (thirdPhoto) thirdPhoto.insertAdjacentElement("afterend", form);
-    else proofPhotos.append(form);
-    showStep(2);
+    $("#request-form-title").textContent = `Ask about ${campaignVehicle.title}`;
   }
 
   function setupPhoneTracking() {
@@ -529,12 +483,11 @@
       ? `${money.format(vehicle.price)} asking price${vehicle.stock ? ` · Stock ${vehicle.stock}` : ""}. Leave your name, phone number, and email for a dealer callback about this exact car.`
       : `${money.format(vehicle.price)} asking price${vehicle.stock ? ` · Stock ${vehicle.stock}` : ""}. Leave your contact details so our sales team can follow up about this car.`;
     if (type) $("select[name='requestType']").value = type;
-    showStep(directVehicleRequest ? 2 : 1);
     if (window.fbq) window.fbq("trackCustom", "LeadFormOpen", { content_name: vehicle.title, content_ids: [vehicle.id], vehicle_stock: vehicle.stock || "", request_type: type || "Availability and details" });
-    const requestTarget = directVehicleRequest ? $("#request-form") : $("#request");
+    const requestTarget = $("#request-form");
     requestTarget.scrollIntoView({ behavior: "smooth", block: "center" });
     setTimeout(() => {
-      const field = directVehicleRequest ? $("#request-form input[name='firstName']") : $("#vehicle-select");
+      const field = $("#request-form input[name='firstName']");
       field.scrollIntoView({ block: "center", behavior: "auto" });
       field.focus({ preventScroll: true });
     }, 450);
@@ -627,10 +580,7 @@
     event.preventDefault();
     const form = event.currentTarget;
     if (form.dataset.submitting === "true") return;
-    if (!validateFields(form, (field) => {
-      const step = field.closest(".form-step");
-      if (step) showStep(Number(step.dataset.step));
-    })) return;
+    if (!validateFields(form)) return;
     const data = new FormData(form);
     const vehicle = inventory.find((row) => row.id === data.get("vehicleSlug"));
     const payload = { type: "vehicle-request", leadId: newLeadId(), dealerId: config.dealerId, dealerName: config.brand, landingId: config.landingId, vehicleSlug: data.get("vehicleSlug"), vehicle: vehicle ? vehicle.title : "", vehicleStock: vehicle ? vehicle.stock : "", vehiclePrice: vehicle ? vehicle.price : null, requestType: data.get("requestType"), firstName: String(data.get("firstName") || "").trim(), lastName: String(data.get("lastName") || "").trim(), phone: String(data.get("phone") || "").trim(), email: String(data.get("email") || "").trim(), purchaseMethod: data.get("purchaseMethod"), deliveryNeeded: Boolean(data.get("deliveryNeeded")), contactConsent: Boolean(data.get("contactConsent")), pageUrl: location.href, attribution: getAttribution() };

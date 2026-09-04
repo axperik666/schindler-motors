@@ -116,29 +116,20 @@
       <div class="request-shell">
         <div class="request-copy reveal"><p class="eyebrow">TELL US WHICH ONE</p><h2 id="request-title">Ask about one exact vehicle.</h2><p id="request-context">The form takes three short steps. Your request stays tied to the listing, stock number, and asking price you select.</p><div class="request-phone"><span>Call either sales line or email us</span><div class="request-phone-links"><a href="tel:+18142125574">+1&nbsp;(814)&nbsp;212&#8209;5574</a><a href="tel:+18142000405">+1&nbsp;(814)&nbsp;200&#8209;0405</a><a class="request-email" href="mailto:Sales@schindlermotors.com">Sales@schindlermotors.com</a></div></div></div>
         <form class="request-form reveal" id="request-form" novalidate>
-          <div class="form-progress" role="group" aria-label="Form progress"><span class="active" data-progress="1">1. Car</span><span data-progress="2">2. Contact</span><span data-progress="3">3. Purchase</span></div>
-          <section class="form-step active" data-step="1">
-            <h3>Which classic brought you here?</h3>
-            <label>Exact vehicle<select name="vehicleSlug" id="vehicle-select" required><option value="">Choose the exact vehicle</option></select></label>
-            <label>What would you like to receive?<select name="requestType" required><option value="Availability and details">Availability and details</option><option value="Vehicle details and questions">Vehicle details and questions</option><option value="Purchase information">Purchase information</option><option value="Delivery planning">Delivery planning</option></select></label>
-            <button class="step-next" type="button" data-next="2">Continue</button>
-          </section>
-          <section class="form-step" data-step="2">
-            <h3>Where should we reach you?</h3>
-            <div class="two-fields"><label>First name<input name="firstName" type="text" autocomplete="given-name" required maxlength="60"></label><label>Last name<input name="lastName" type="text" autocomplete="family-name" required maxlength="60"></label></div>
-            <label>Phone<input name="phone" type="tel" autocomplete="tel" required placeholder="(555) 555-5555"></label>
-            <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
-            <div class="step-actions"><button class="step-back" type="button" data-back="1">Back</button><button class="step-next" type="button" data-next="3">Continue</button></div>
-          </section>
-          <section class="form-step" data-step="3">
-            <h3>One last detail.</h3>
-            <fieldset><legend>How are you considering the purchase?</legend><div class="purchase-options"><label><input type="radio" name="purchaseMethod" value="Cash" checked><span>Cash</span></label><label><input type="radio" name="purchaseMethod" value="Financing"><span>Financing</span></label><label><input type="radio" name="purchaseMethod" value="Undecided"><span>Not sure yet</span></label></div></fieldset>
-            <label class="check"><input type="checkbox" name="deliveryNeeded"><span>I may need delivery to my location</span></label>
-            <label class="consent"><input type="checkbox" name="contactConsent" required><span>I agree to be contacted about this request by phone, text, or email. Consent is not a condition of purchase. Message and data rates may apply.</span></label>
-            <p class="privacy-note">We collect your contact details, selected vehicle, and request information only to respond and operate this service. See our <a href="privacy/">Privacy Policy</a> and <a href="terms/">Terms of Use</a>.</p>
-            <div class="step-actions"><button class="step-back" type="button" data-back="2">Back</button><button class="submit-request" type="submit">Send my request <i data-lucide="arrow-right" aria-hidden="true"></i></button></div>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </section>
+          <p class="form-kicker">VEHICLE REQUEST</p>
+          <h3 id="request-form-title">Ask about a specific vehicle</h3>
+          <p class="form-intro">Choose the exact listing. We’ll use your contact details only to answer that vehicle request.</p>
+          <label>Exact vehicle<select name="vehicleSlug" id="vehicle-select" required><option value="">Choose the exact vehicle</option></select></label>
+          <label>What would you like?<select name="requestType" required><option value="Availability and details">Check availability and details</option><option value="Personal walk-around video">Request a personal walk-around video</option><option value="Purchase information">Ask a purchase question</option><option value="Delivery planning">Discuss delivery planning</option></select></label>
+          <div class="two-fields"><label>First name<input name="firstName" type="text" autocomplete="given-name" required maxlength="60"></label><label>Last name<input name="lastName" type="text" autocomplete="family-name" required maxlength="60"></label></div>
+          <label>Phone number<input name="phone" type="tel" autocomplete="tel" required maxlength="24" placeholder="(555) 555-5555"></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="120" placeholder="you@example.com"></label>
+          <fieldset><legend>How are you thinking about buying?</legend><div class="purchase-options"><label><input type="radio" name="purchaseMethod" value="Cash" checked><span>Cash</span></label><label><input type="radio" name="purchaseMethod" value="Financing"><span>Financing</span></label><label><input type="radio" name="purchaseMethod" value="Not sure"><span>Not sure</span></label></div></fieldset>
+          <label class="check"><input type="checkbox" name="deliveryNeeded"><span>I may need delivery to my location</span></label>
+          <label class="consent"><input type="checkbox" name="contactConsent" required><span>I agree to be contacted about this request by phone, text, or email. Consent is not a condition of purchase. Message and data rates may apply.</span></label>
+          <p class="privacy-note">We collect your contact details, selected vehicle, and request information only to respond and operate this service. See our <a href="privacy/">Privacy Policy</a> and <a href="terms/">Terms of Use</a>.</p>
+          <button class="submit-request" type="submit">Send my request <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          <p class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
         </form>
       </div>
     </section>
