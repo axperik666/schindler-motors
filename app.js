@@ -405,6 +405,13 @@
     $("[data-campaign-gallery]").textContent = `See All ${vehicle.images.length} Photos`;
     $(".hero .eyebrow").textContent = "THE EXACT VEHICLE FROM YOUR AD";
     $("#hero-headline").textContent = vehicle.title;
+    let heroPrice = $(".vehicle-hero-price");
+    if (!heroPrice) {
+      heroPrice = document.createElement("p");
+      heroPrice.className = "vehicle-hero-price";
+      $("#hero-headline").insertAdjacentElement("afterend", heroPrice);
+    }
+    heroPrice.textContent = `${money.format(vehicle.price)} asking price${vehicle.stock ? ` · Stock ${vehicle.stock}` : ""}`;
     $("#hero-lede").textContent = "Interested in this car? Leave your name, phone number, and email for a dealer callback — or call our sales team now.";
     $("#inventory-heading-title").textContent = "Three more classics, if you want to compare.";
     const proofSection = $("#campaign-proof");
