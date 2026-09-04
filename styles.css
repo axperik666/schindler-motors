@@ -544,3 +544,88 @@ form .form-status.success {
   overflow-wrap: anywhere;
 }
 form .form-status.success:focus { outline: 2px solid #286b42; outline-offset: 3px; }
+
+/* Port Matilda Editorial Showroom — September 2026 */
+:root {
+  --cream: #f5f0e6;
+  --cream-2: #e8decc;
+  --ink: #21312c;
+  --charcoal: #173e34;
+  --red: #1c5648;
+  --red-dark: #123d34;
+  --gold: #c49a54;
+  --line: #c9bda8;
+}
+body { color: #24332e; background: #f5f0e6; }
+.site-header { color: #fff; background: rgba(18,61,52,.98); border-bottom: 1px solid rgba(244,235,218,.28); box-shadow: 0 6px 24px rgba(14,43,36,.12); }
+.logo small, .header-shell nav a { color: #e9e2d5; }
+.logo-wing { background: linear-gradient(90deg, transparent, #c49a54); }
+.logo-wing:last-child { background: linear-gradient(90deg, #c49a54, transparent); }
+.header-phone svg, .eyebrow, .hero-caption span { color: #9a6f2c; }
+.header-shell nav a:hover { color: #fff3d7; }
+.site-header .header-phone svg, .request-section .eyebrow, .site-footer .eyebrow { color: #e2bd7a; }
+.hero-content > .eyebrow { color: #31544a; }
+.closer-copy > .eyebrow { color: #e2bd7a; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -.035em; text-transform: none; }
+.eyebrow, .red-button, .cream-button, .ghost-button, .step-next, .submit-request, .step-back { font-family: var(--display); text-transform: uppercase; }
+.hero { min-height: 720px; color: #24332e; background: #f5f0e6; border-bottom: 1px solid #cabda7; }
+.hero-photo { inset: 0 0 0 auto; width: 58%; height: 100%; object-position: center; background: #ded4c3; }
+.hero-overlay { background: linear-gradient(90deg, #f5f0e6 0%, #f5f0e6 41%, rgba(245,240,230,.94) 48%, rgba(245,240,230,.2) 74%, rgba(245,240,230,0) 100%); }
+.hero-frame { border-color: rgba(23,62,52,.24); }
+.hero-content { min-height: 720px; padding: 76px 0 88px; }
+.hero-content h1 { max-width: 610px; color: #173e34; font-size: clamp(59px, 6.8vw, 98px); line-height: .92; }
+.hero-content h1 em { color: #9a6f2c; }
+.hero-content > p:not(.eyebrow) { max-width: 575px; color: #53635d; font-size: 20px; }
+.hero-facts { max-width: 610px; border-color: rgba(23,62,52,.24); }
+.hero-facts span { color: #52615b; }
+.hero-facts strong { color: #173e34; }
+.hero-caption { right: 44px; color: #173e34; background: rgba(249,245,237,.96); border-left-color: #c49a54; box-shadow: 0 12px 36px rgba(20,48,40,.16); }
+.hero-caption strong { color: #173e34; }
+.hero-caption em { color: #52615c; }
+.red-button, .step-next, .submit-request { color: #fff; background: #1c5648; border-color: #1c5648; }
+.red-button:hover { background: #123d34; }
+.cream-button { color: #173e34; background: #efe4d2; border-color: #bca984; }
+.ghost-button { color: #173e34; background: transparent; border-color: #45685f; }
+.memory-match, .steps-section { background: #f5f0e6; }
+.inventory-section, .visit-section { background: #e9e0d0; }
+.classic-card, .match-options button, .request-form { background: #fffaf1; border-color: #c9bda8; box-shadow: 0 14px 34px rgba(26,58,49,.08); }
+.classic-card.campaign-match { border-color: #1c5648; box-shadow: 0 18px 44px rgba(28,86,72,.18); }
+.classic-era, .classic-price, .classic-more, .match-options span, .steps > li > span { color: #1c5648; }
+.listing-status { color: #173e34; background: #d7b470; }
+.campaign-proof { color: #24332e; background: #fffaf1; border-color: #c9bda8; }
+.campaign-proof-copy .eyebrow, .campaign-proof-price { color: #1c5648; }
+.campaign-proof-copy h2 { color: #173e34; }
+.campaign-proof-copy > p:not(.eyebrow):not(.campaign-proof-price), .campaign-proof-specs dt { color: #657069; }
+.campaign-proof-specs dd { color: #24332e; }
+.campaign-proof-photos img { background: #ded4c3; border-color: #c9bda8; }
+.request-section { color: #fff; background: #173e34; }
+.request-copy > p:not(.eyebrow), .request-phone span { color: #d7e1dc; }
+.request-phone a.request-email { color: #e2bd7a; }
+.request-form { color: #24332e; box-shadow: 12px 12px 0 rgba(6,31,25,.18); }
+.form-progress span.active { color: #173e34; border-color: #1c5648; }
+.purchase-options input:checked + span { background: #173e34; border-color: #173e34; }
+.vintage-pin { background: #1c5648; }
+.route-shield { color: #173e34; border-color: #173e34; }
+.site-footer { background: #0f3029; }
+.mobile-bar a, .mobile-bar button { background: #102f28; }
+.mobile-bar .vehicle-lead-cta { color: #fff; background: #1c5648; }
+.vehicle-landing .hero, .vehicle-landing .campaign-proof, .vehicle-landing .inventory-section { background: #f5f0e6; }
+.vehicle-landing .hero-content h1, .vehicle-landing .campaign-proof-copy h2, .vehicle-landing .inventory-heading h2 { color: #173e34; }
+.vehicle-landing .hero-content .vehicle-hero-price, .vehicle-landing .campaign-proof-price { color: #1c5648; }
+.vehicle-landing .campaign-proof-photos .compact-vehicle-form { background: #fffaf1; border-color: #c9bda8; border-top-color: #1c5648; box-shadow: 8px 8px 0 rgba(23,62,52,.11); }
+.vehicle-landing .inventory-all-link { background: #1c5648; border-color: #1c5648; }
+@media (max-width: 740px) {
+  .hero { min-height: 0; display: flex; flex-direction: column; }
+  .hero-photo { position: relative; inset: auto; order: 1; width: 100%; height: auto; aspect-ratio: 3 / 2; object-position: center; }
+  .hero-overlay, .hero-frame, .hero-caption { display: none; }
+  .hero-content { order: 2; width: min(100% - 28px, 1280px); min-height: 0; padding: 28px 0 42px; }
+  .hero-content h1 { margin-bottom: 14px; font-size: clamp(43px, 12vw, 58px); line-height: .95; }
+  .hero-content > p:not(.eyebrow) { color: #53635d; font-size: 17px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; width: 100%; }
+  .hero-actions > * { width: 100%; }
+  .hero-facts { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 28px; padding-top: 0; border-bottom: 1px solid rgba(23,62,52,.2); }
+  .hero-facts span { padding: 14px 8px; text-align: center; }
+  .hero-facts span + span { border-left: 1px solid rgba(23,62,52,.18); }
+  .hero-facts strong { font-size: 24px; }
+  .ghost-button { color: #173e34; background: transparent; border-color: #45685f; }
+}

@@ -574,10 +574,23 @@
     const options = { method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: JSON.stringify(requestPayload), redirect: "follow" };
     const response = await fetch(config.leadEndpoint, options);
     const body = await response.json().catch(() => ({}));
-    if (!response.ok || body.ok !== true) {
+    if (!response.ok || body.ok !== true || !Number.isInteger(body.telegramMessageId)) {
       throw new Error(body.message || "We could not confirm delivery of your request.");
     }
     return body;
+  }
+
+  function trackConfirmedLead(payload) {
+    if (!window.fbq) return;
+    window.fbq("track", "Lead", {
+      content_name: payload.vehicle || "Schindler Motors vehicle inquiry",
+      content_ids: payload.vehicleSlug ? [payload.vehicleSlug] : [],
+      content_type: "vehicle",
+      vehicle_stock: payload.vehicleStock || "",
+      value: Number(payload.vehiclePrice) || 0,
+      currency: "USD",
+      request_type: payload.requestType || payload.type || "Vehicle inquiry"
+    }, { eventID: payload.leadId });
   }
 
   async function deliver(payload, status) {
@@ -600,6 +613,7 @@
     }
     try {
       await postLeadToRouter(payload);
+      trackConfirmedLead(payload);
       showRequestSuccess(status);
       return true;
     } catch (error) {
